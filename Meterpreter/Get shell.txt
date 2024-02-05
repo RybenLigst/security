@@ -1,0 +1,1 @@
+If you need to get a shell on a remote machine, run the shell command of the same name. Or manually run cmd.

