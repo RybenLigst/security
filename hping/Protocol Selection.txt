@@ -1,0 +1,22 @@
+Default protocol is TCP, by default hping3 will send tcp headers to target host's port 0 with a winsize of 64 without any tcp flag on. Often this is the best way to do an 'hide ping', useful when target is behind a firewall that drop ICMP. Moreover a tcp null-flag to port 0 has a good probability of not being logged.
+
+-0 --rawip
+RAW IP mode, in this mode hping3 will send IP header with data appended with --signature and/or --file, see also --ipproto that allows you to set the ip protocol field.
+
+-1 --icmp
+ICMP mode, by default hping3 will send ICMP echo-request, you can set other ICMP type/code using --icmptype --icmpcode options.
+
+-2 --udp
+UDP mode, by default hping3 will send udp to target host's port 0. UDP header tunable options are the following: --baseport, --destport, --keep.
+
+-8 --scan
+Scan mode, the option expects an argument that describes groups of ports to scan. port groups are comma separated: a number describes just a single port, so 1,2,3 means port 1, 2 and 3. ranges are specified using a start-end notation, like 1-1000, that tell hping to scan ports between 1 and 1000 (included). the special word all is an alias for 0-65535, while the special word known includes all the ports listed in /etc/services.
+Groups can be combined, so the following command line will scan ports between 1 and 1000 AND port 8888 AND ports listed in /etc/services: hping --scan 1-1000,8888,known -S target.host.com
+Groups can be negated (subtracted) using a ! character as prefix, so the following command line will scan all the ports NOT listed in /etc/services in the range 1-1024: hping --scan '1-1024,!known' -S target.host.com
+Keep in mind that while hping seems much more like a port scanner in this mode, most of the hping switches are still honored, so for example to perform a SYN scan you need to specify the -S option, you can change the TCP windows size, TTL, control the IP fragmentation as usually, and so on. The only real difference is that the standard hping behaviors are encapsulated into a scanning algorithm.
+
+Tech note: The scan mode uses a two-processes design, with shared memory for synchronization. The scanning algorithm is still not optimal, but already quite fast.
+Hint: unlike most scanners, hping shows some interesting info about received packets, the IP ID, TCP win, TTL, and so on, don't forget to look at this additional information when you perform a scan! Sometimes they shows interesting details.
+
+-9 --listen signature
+HPING3 listen mode, using this option hping3 waits for packet that contain signature and dump from signature end to packet's end. For example if hping3 --listen TEST reads a packet that contain 234-09sdflkjs45-TESThello_world it will display hello_world.

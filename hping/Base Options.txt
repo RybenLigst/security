@@ -1,0 +1,45 @@
+-h --help
+Show an help screen on standard output, so you can pipe to less.
+
+-v --version
+Show version information and API used to access to data link layer, linux sock packet or libpcap.
+
+-c --count count
+Stop after sending (and receiving) count response packets. After last packet was send hping3 wait COUNTREACHED_TIMEOUT seconds target host replies. You are able to tune COUNTREACHED_TIMEOUT editing hping3.h
+
+-i --interval
+Wait the specified number of seconds or micro seconds between sending each packet. --interval X set wait to X seconds, --interval uX set wait to X micro seconds. The default is to wait one second between each packet. Using hping3 to transfer files tune this option is really important in order to increase transfer rate. Even using hping3 to perform idle/spoofing scanning you should tune this option, see HPING3-HOWTO for more information.
+
+--fast
+Alias for -i u10000. Hping will send 10 packets for second.
+
+--faster
+Alias for -i u1. Faster then --fast ;) (but not as fast as your computer can send packets due to the signal-driven design).
+
+--flood
+Sent packets as fast as possible, without taking care to show incoming replies. This is ways faster than to specify the -i u0 option.
+
+-n --numeric
+Numeric output only, No attempt will be made to lookup symbolic names for host addresses.
+
+-q --quiet
+Quiet output. Nothing is displayed except the summary lines at startup time and when finished.
+
+-I --interface interface name
+By default on linux and BSD systems hping3 uses default routing interface. In other systems or when there is no default route hping3 uses the first non-loopback interface. However you are able to force hping3 to use the interface you need using this option. Note: you don't need to specify the whole name, for example -I et will match eth0 ethernet0 myet1 et cetera. If no interfaces match hping3 will try to use lo.
+
+-V --verbose
+Enable verbose output. TCP replies will be shown as follows:
+len=46 ip=192.168.1.1 flags=RA DF seq=0 ttl=255 id=0 win=0 rtt=0.4 ms tos=0 iplen=40 seq=0 ack=1380893504 sum=2010 urp=0
+
+-D --debug
+Enable debug mode, it's useful when you experience some problem with hping3. When debug mode is enabled you will get more information about interface detection, data link layer access, interface settings, options parsing, fragmentation, HCMP protocol and other stuff.
+
+-z --bind
+Bind CTRL+Z to time to live (TTL) so you will able to increment/decrement ttl of outgoing packets pressing CTRL+Z once or twice.
+
+-Z --unbind
+Unbind CTRL+Z so you will able to stop hping3.
+
+--beep
+Beep for every matching received packet (but not for ICMP errors).

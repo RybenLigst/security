@@ -1,0 +1,45 @@
+-a --spoof hostname
+
+Use this option in order to set a fake IP source address, this option ensures that target will not gain your real address. However replies will be sent to spoofed address, so you will can't see them. In order to see how it's possible to perform spoofedidle scanning see the HPING3-HOWTO.
+
+--rand-source
+This option enables the random source mode. hping will send packets with random source address. It is interesting to use this option to stress firewall state tables, and other per-ip basis dynamic tables inside the TCPIP stacks and firewall software.
+
+--rand-dest
+This option enables the random destination mode. hping will send the packets to random addresses obtained following the rule you specify as the target host. You need to specify a numerical IP address as target host like 10.0.0.x. All the occurrences of x will be replaced with a random number in the range 0-255. So to obtain Internet IP addresses in the whole IPv4 space use something like hping x.x.x.x --rand-dest. If you are not sure about what kind of addresses your rule is generating try to use the --debug switch to display every new destination address generated. When this option is turned on, matching packets will be accept from all the destinations.
+Warning when this option is enabled hping can't detect the right outgoing interface for the packets, so you should use the --interface option to select the desired outgoing interface.
+
+-t --ttl time to live
+Using this option you can set TTL (time to live) of outgoing packets, it's likely that you will use this with --traceroute or --bind options. If in doubt try 'hping3 some.host.com -t 1 --traceroute'.
+
+-N --id
+Set ip-id field. Default id is random but if fragmentation is turned on and id isn't specified it will be getpid() & 0xFF, to implement a better solution is in TODO list.
+
+-H --ipproto
+Set the ip protocol in RAW IP mode.
+
+-W --winid
+id from Windows systems before Win2k has different byte ordering, if this option is enable hping3 will properly display id replies from those Windows.
+
+-r --rel
+Display id increments instead of id. See the HPING3-HOWTO for more information. Increments aren't computed as id[N]-id[N-1] but using packet loss compensation. See relid.c for more information.
+
+-f --frag
+Split packets in more fragments, this may be useful in order to test IP stacks fragmentation performance and to test if some packet filter is so weak that can be passed using tiny fragments (anachronistic). Default 'virtual mtu' is 16 bytes. see also --mtu option.
+
+-x --morefrag
+Set more fragments IP flag, use this option if you want that target host send an ICMP time-exceeded during reassembly.
+
+-y --dontfrag
+Set don't fragment IP flag, this can be used to perform MTU path discovery.
+-g --fragoff fragment offset value
+Set the fragment offset.
+
+-m --mtu mtu value
+Set different 'virtual mtu' than 16 when fragmentation is enabled. If packets size is greater that 'virtual mtu' fragmentation is automatically turned on.
+
+-o --tos hex_tos
+Set Type Of Service (TOS), for more information try --tos help.
+
+-G --rroute
+Record route. Includes the RECORD_ROUTE option in each packet sent and displays the route buffer of returned packets. Note that the IP header is only large enough for nine such routes. Many hosts ignore or discard this option. Also note that using hping you are able to use record route even if target host filter ICMP. Record route is an IP option, not an ICMP option, so you can use record route option even in TCP and UDP mode.
