@@ -1,0 +1,6 @@
+Evil-Droid is a framework that create & generate & embed apk payload to penetrate android platforms
+
+Author: Mascerano Bachir [ dev-labs ]
+
+The author (and me :) )  does not hold any responsibility for the bad use of this tool,
+remember this is only for educational purpose.

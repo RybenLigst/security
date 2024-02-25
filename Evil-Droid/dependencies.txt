@@ -1,0 +1,6 @@
+1 - metasploit-framework
+2 - xterm
+3 - Zenity
+4 - Aapt
+5 - Apktool
+6 - Zipalign
