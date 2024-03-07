@@ -1,6 +1,5 @@
-### Brute-Force
 ## Options
-# Some of the most commonly used options are as follows:
+Some of the most commonly used options are as follows:
 
 Options Short, Long | Type | Description                       | Example
 -m, -hash-type      | Num  | Hash-type, see references below   | -m 1000
