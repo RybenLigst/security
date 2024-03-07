@@ -24,3 +24,76 @@ a, –attack-mode     | Num  | Attack-mode, see references below | -a 3
 -----------------------------------------------------------------------------------
 –increment-max      | Num  | Stop mask incrementing at X       | –increment-max=8
 -----------------------------------------------------------------------------------
+
+-m specifies the hash mode, i.e., LM(3000), NTLM(1000), MD5(0), SHA1(100);
+-a is for the attack mode, they are
+
+| Num | Mode
+|  0  | Straight
+|  1  | Combination
+|  3  | Brute-force
+|  6  | Hybrid Wordlist + Mask
+|  7  | Hybrid Mask + Wordlist
+
+I will use 3 for the example
+
+-w sets the workload profile
+
+| Num | Performance | Runtime | Power Consumption | Desktop Impact |
+|  1  | Low         |  2 ms   | Low               | Minimal        |
+|  2  | Default     |  12 ms  | Economic          | Noticeable     |
+|  3  | High        |  96 ms  | High              | Unresponsive   |
+|  4  | Nightmare   |  480 ms | Insane            | Headless       |
+
+You may choose the Nightmare mode if on a dedicated machine;
+
+-1/2/3 creates customized charsets which can be used later in the password mask
+
+Hashcat has the following built-in charsets:
+
+| ? | Charset 
+| l | abcdefghijklmnopqrstuvwxyz
+| u | ABCDEFGHIJKLMNOPQRSTUVWXYZ
+| d | 0123456789
+| h | 0123456789abcdef
+| H | 0123456789ABCDEF
+| s | !”#$%&’()*+,-./:;<=>?@[]^_`{}~
+| a | ?l?u?d?s
+| b | 0x00 - 0xff
+
+you may use these charsets in your password mask directly.
+
+I.E. for numeric, 6 character long password NTLM hash:
+
+hashcat -m 1000 -a 3 hash.txt ?d?d?d?d?d?d
+
+As you can see, in brute-fore mode, the string ?d?d?d?d?d?d is the mask,
+
+the charset of each position can be designated with a ? followed by its charset.
+
+?d?d?d?d?d?d means that hashcat should try every possible numeric strings of length 6.
+
+You can change the charset of any position to reduce the overall complexity.
+
+For a complex password consisting of both lowercase, numbers and special characters,
+
+you can use:
+
+-1 ?l?d?s 
+
+for convenience.
+
+That is
+
+hashcat64 -m 1000 -a 3 hash.txt -1 ?l?d?s ?1?1?1?1?1?1
+if the password is still 6 characters long.
+
+-i enables mask increment mode, for example
+
+hashcat -m 1000 -a 3 hash.txt ?d?d?d?d?d?d
+
+only tries combinations that are 6 characters long.
+
+With -i set, hashcat will start from 1 character to 6 characters.
+
+You can also set the minimum length with --increment-min=[length] and the maxmum length with --increment-max=[length].
