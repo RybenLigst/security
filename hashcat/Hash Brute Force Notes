@@ -1,4 +1,6 @@
-Some of the most commonly used options are as follows:
+### Brute-Force
+## Options
+# Some of the most commonly used options are as follows:
 
 Options Short, Long | Type | Description                       | Example
 -m, -hash-type      | Num  | Hash-type, see references below   | -m 1000
@@ -10,17 +12,16 @@ a, –attack-mode     | Num  | Attack-mode, see references below | -a 3
 -O, –optimized      |      | Enable optimized kernels          |
 -kernel-enable      |      | (limits password length)          |
 -----------------------------------------------------------------------------------
--w,                 | Num  | Enable a specific workload
-–workload-profile   |      | profile, see pool below
-
-
-
-
-
-
-
-
-
-
-
-
+-w,                 | Num  | Enable a specific workload        | -w 3
+–workload-profile   |      | profile, see pool below           |
+-----------------------------------------------------------------------------------
+-1,–custom-charset1 |  CS  | User-defined charset ?1           | -1 ?l?d?u
+-----------------------------------------------------------------------------------
+-2,–custom-charset2 |  CS  | User-defined charset ?2           | -2 ?l?d?s
+-----------------------------------------------------------------------------------
+-i, –increment      |      | Enable mask increment mode        |
+-----------------------------------------------------------------------------------
+–increment-min      | Num  | Start mask incrementing at X      | –increment-min=4
+-----------------------------------------------------------------------------------
+–increment-max      | Num  | Stop mask incrementing at X       | –increment-max=8
+-----------------------------------------------------------------------------------
