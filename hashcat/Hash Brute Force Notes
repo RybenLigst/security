@@ -1,0 +1,26 @@
+Some of the most commonly used options are as follows:
+
+Options Short, Long | Type | Description                       | Example
+-m, -hash-type      | Num  | Hash-type, see references below   | -m 1000
+-----------------------------------------------------------------------------------
+a, –attack-mode     | Num  | Attack-mode, see references below | -a 3
+-----------------------------------------------------------------------------------
+-b, –benchmark      |      | Run benchmark                     |
+-----------------------------------------------------------------------------------
+-O, –optimized      |      | Enable optimized kernels          |
+-kernel-enable      |      | (limits password length)          |
+-----------------------------------------------------------------------------------
+-w,                 | Num  | Enable a specific workload
+–workload-profile   |      | profile, see pool below
+
+
+
+
+
+
+
+
+
+
+
+
