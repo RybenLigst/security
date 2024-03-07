@@ -96,4 +96,5 @@ only tries combinations that are 6 characters long.
 
 With -i set, hashcat will start from 1 character to 6 characters.
 
-You can also set the minimum length with --increment-min=[length] and the maxmum length with --increment-max=[length].
+You can also set the minimum length with --increment-min=[length]
+and the maxmum length with --increment-max=[length].
