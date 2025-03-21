@@ -32,4 +32,4 @@
 - **Hashcat можливий?** Ні бо токен не хеш.
 - **Отримання ID AnyDesk:** З `/etc/anydesk/system.conf`.
 
-[app_security/AnyDesk/anydesk_conf_files_when_not_installed.png](https://github.com/RybenLigst/security/blob/main/app_security/AnyDesk/anydesk_conf_files_when_not_installed.png)
+[Скрін](https://github.com/RybenLigst/security/blob/main/app_security/AnyDesk/anydesk_conf_files_when_not_installed.png)
